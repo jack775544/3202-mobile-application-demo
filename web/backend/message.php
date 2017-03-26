@@ -1,17 +1,22 @@
 <?php
 /*
- * Takes a POST variable 'token' and if it is valid then return a message saying hello
+ * Returns a message to a validated user
+ * Takes the following post args:
+ * username: the username of the user to get a message for
+ * token: auth token for the user
+ *
+ * And returns a message as text/plain
  */
+require_once "admin.php";
 
-header("Content-Type: application/json");
+header("Content-Type: text/plain");
 
-$response = array();
+$username = null;
+$token_post = null;
+if (isset($_POST['username'])) $username = $_POST['username'];
+if (isset($_POST['token'])) $token_post = $_POST['token'];
 
-if ($_POST = '3202Token') {
-    $response['message'] = "Hello 3202 Student";
-    echo json_encode($response);
-    return;
+$token = login_check($username, null, $token_post);
+if (isset($token)) {
+    echo "Hello " . $_POST['username'] . ", you are logged into the system";
 }
-
-$response['message'] = "Who are you";
-echo $response;

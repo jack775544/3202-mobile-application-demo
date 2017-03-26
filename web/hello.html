@@ -22,8 +22,9 @@
     function go() {
         var store = window.localStorage;
         var token = store.getItem("token");
-        $.post("backend/message.php", {"token": token}, function (r) {
-            alert(r.message);
+        var username = store.getItem("username");
+        $.post("backend/message.php", {"token": token, "username": username}, function (r) {
+            alert(r);
         });
     }
 </script>
