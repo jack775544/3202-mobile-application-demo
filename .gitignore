@@ -1,0 +1,15 @@
+.idea
+
+# Mac
+.DS_Store
+
+# Node
+/mobile/npm-debug.log
+mobile/node_modules
+
+# Cordova
+mobile/platforms
+mobile/plugins
+
+# res
+/mobile/resources/signing
