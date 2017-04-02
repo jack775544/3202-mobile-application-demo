@@ -7,6 +7,7 @@
 session_start();
 require_once "admin.php";
 
+header("Access-Control-Allow-Origin: *");
 header("Content-Type: text/plain");
 
 $authenticated = check_login();

@@ -13,12 +13,26 @@
     <div>
         <button id="logout">Logout</button>
     </div>
+
+    <div>
+        <form id="location_form">
+            <label for="latitude">Latitude</label>
+            <input id="latitude" type="number">
+            <label for="longitude">Longitude</label>
+            <input id="longitude" type="number">
+        </form>
+    </div>
 </div>
 
 <script src="js/jquery.min.js" type="application/javascript"></script>
 <script src="js/bootstrap.min.js" type="application/javascript"></script>
 <script src="js/index.js" type="application/javascript"></script>
 <script type="application/javascript">
+    $("#location_form").submit(function(e){
+       e.preventDefault();
+       $.post("backend/")
+    });
+
     $("#go").click(function (e) {
         $.post("backend/message.php", function (r) {
             alert(r);
